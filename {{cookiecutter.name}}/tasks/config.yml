@@ -1,0 +1,8 @@
+- name: Template configuration
+  template:
+    src: "{{ cookiecutter.name }}.conf.j2"
+    dest: "{{ '{{' }} {{ cookiecutter.name }}_conf_file {{ '}}' }}"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  notify: "{{ cookiecutter.name }}:reload"

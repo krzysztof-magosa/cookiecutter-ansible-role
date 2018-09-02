@@ -1,0 +1,13 @@
+- name: Reload {{ cookiecutter.name }}
+  service:
+    name: {{ cookiecutter.name }}
+    state: reloaded
+  listen: {{ cookiecutter.name }}:reload
+  when: {{ cookiecutter.name }}_enabled
+
+- name: Restart {{ cookiecutter.name }}
+  service:
+    name: {{ cookiecutter.name }}
+    state: restarted
+  listen: {{ cookiecutter.name }}:restart
+  when: {{ cookiecutter.name }}_enabled

@@ -1,0 +1,22 @@
+- import_tasks: variables.yml
+  tags:
+    - {{ cookiecutter.name }}
+    - {{ cookiecutter.name }}_variables
+    - {{ cookiecutter.name }}_install
+    - {{ cookiecutter.name }}_config
+    - {{ cookiecutter.name }}_service
+
+- import_tasks: install.yml
+  tags:
+    - {{ cookiecutter.name }}
+    - {{ cookiecutter.name }}_install
+
+- import_tasks: config.yml
+  tags:
+    - {{ cookiecutter.name }}
+    - {{ cookiecutter.name }}_config
+
+- import_tasks: service.yml
+  tags:
+    - {{ cookiecutter.name }}
+    - {{ cookiecutter.name }}_service

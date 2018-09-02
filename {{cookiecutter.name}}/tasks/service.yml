@@ -1,0 +1,5 @@
+- name: Set service state
+  service:
+    name: "{{ cookiecutter.name }}"
+    enabled: "{{ '{{' }} {{ cookiecutter.name }}_enabled {{ '}}' }}"
+    state: "{{ '{{' }} {{ cookiecutter.name }}_enabled | ternary('started', 'stopped') {{ '}}' }}"

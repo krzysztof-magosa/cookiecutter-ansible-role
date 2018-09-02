@@ -1,0 +1,4 @@
+- name: Install {{ cookiecutter.name }}
+  package:
+    name: "{{ '{{' }} {{ cookiecutter.name }}_pkg {{ '}}' }}{{ '{%' }} if {{ cookiecutter.name }}_version {{ '%}' }}-{{ '{{' }} {{ cookiecutter.name }}_version {{ '}}' }}{{ '{%' }} endif {{ '%}' }}"
+    state: present

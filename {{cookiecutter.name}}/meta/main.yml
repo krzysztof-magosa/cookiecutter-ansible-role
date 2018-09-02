@@ -1,0 +1,18 @@
+galaxy_info:
+  author: "{{ cookiecutter.author_name }}"
+  description: "{{ cookiecutter.description }}"
+  license: "{{ cookiecutter.license }}"
+  min_ansible_version: "{{ cookiecutter.min_ansible_version }}"
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+    - name: Ubuntu
+      versions:
+        - xenial
+    - name: EL
+      versions:
+        - 7
+  # galaxy_tags:
+  #   - tag_name
+  dependencies: []

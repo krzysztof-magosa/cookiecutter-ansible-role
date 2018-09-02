@@ -1,0 +1,5 @@
+# Version to be installed
+{{ cookiecutter.name }}_version: "{{ '{{' }} {{ cookiecutter.name }}_default_version {{ '}}' }}"
+
+# Whether to enable daemon
+{{ cookiecutter.name }}_enabled: true
