@@ -2,3 +2,5 @@
 {{ cookiecutter.name }}_pkg: "{{ cookiecutter.name }}"
 {{ cookiecutter.name }}_conf_dir: "/etc/{{ cookiecutter.name }}"
 {{ cookiecutter.name }}_conf_file: "{{ '{{' }} {{ cookiecutter.name }}_conf_dir {{ '}}' }}/{{ cookiecutter.name }}.conf"
+{{ cookiecutter.name }}_services:
+  - "{{ cookiecutter.name }}"
