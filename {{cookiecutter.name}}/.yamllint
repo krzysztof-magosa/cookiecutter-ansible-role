@@ -45,3 +45,6 @@ rules:
     type: unix
   trailing-spaces: enable
   truthy: enable
+  empty-values:
+    forbid-in-block-mappings: true
+    forbid-in-flow-mappings: true
