@@ -2,7 +2,6 @@
   "name": "role",
   "description": "Nice role",
   "license": ["MIT", "BSD-3", "GNU GPL v3.0", "Apache Software License 2.0"],
-  "version": "0.1.0",
   "min_ansible_version": "2.5",
 
   "author_name": "Krzysztof Magosa",
