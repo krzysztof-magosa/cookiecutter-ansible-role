@@ -11,7 +11,7 @@
 ## Supported systems
 * CentOS (tested on 7)
 * Debian (tested on Stretch)
-* Ubuntu (tested on Xenial)
+* Ubuntu (tested on Bionic)
 
 ## Variables
 See [defaults](defaults/main.yml).
