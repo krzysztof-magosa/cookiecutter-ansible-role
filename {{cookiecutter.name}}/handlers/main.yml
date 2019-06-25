@@ -3,13 +3,11 @@
     name: "{{ '{{' }} item {{ '}}' }}'"
     state: reloaded
   listen: {{ cookiecutter.name }}:reload
-  when: {{ cookiecutter.name }}_enabled
-  loop: "{{ '{{' }} {{ cookiecutter.name }}_services {{ '}}' }}"
+  loop: "{{ '{{' }} {{ cookiecutter.name }}_enabled | ternary({{ cookiecutter.name }}_services, []) {{ '}}' }}"
 
 - name: Restart {{ cookiecutter.name }}
   service:
     name: "{{ '{{' }} item {{ '}}' }}'"
     state: restarted
   listen: {{ cookiecutter.name }}:restart
-  when: {{ cookiecutter.name }}_enabled
-  loop: "{{ '{{' }} {{ cookiecutter.name }}_services {{ '}}' }}"
+  loop: "{{ '{{' }} {{ cookiecutter.name }}_enabled | ternary({{ cookiecutter.name }}_services, []) {{ '}}' }}"
