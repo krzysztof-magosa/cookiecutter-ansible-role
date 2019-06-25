@@ -909,4 +909,6 @@ Public License instead of this License.  But first, please read
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+{%- elif cookiecutter.license == "Proprietary" -%}
+Copyright (c) {% now "utc", "%Y" %}, {{ cookiecutter.author_name }} 
 {% endif %}
