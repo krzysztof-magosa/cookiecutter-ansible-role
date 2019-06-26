@@ -16,4 +16,9 @@ galaxy_info:
         - 7
   # galaxy_tags:
   #   - tag_name
-  dependencies: []
+
+# dependencies:
+#   - src: git@github.com:repo/name.git
+#     scm: git
+#     name: role_name
+#   - galaxy_user.role
