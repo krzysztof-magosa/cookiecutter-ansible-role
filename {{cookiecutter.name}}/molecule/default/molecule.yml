@@ -28,6 +28,11 @@ platforms:
     environment:
       container: docker
   - name: ${TOX_ENVNAME}-debian
+    image: debian:buster
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+  - name: ${TOX_ENVNAME}-debian-old
     image: debian:stretch
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro

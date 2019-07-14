@@ -6,11 +6,11 @@
 {{ cookiecutter.description }}
 
 ## Requirements
-* Ansible {{ cookiecutter.min_ansible_version }}
+* Ansible {{ cookiecutter.min_ansible_version }} or better
 
 ## Supported systems
 * CentOS (tested on 7)
-* Debian (tested on Stretch)
+* Debian (tested on Buster, Stretch)
 * Ubuntu (tested on Bionic)
 
 ## Variables

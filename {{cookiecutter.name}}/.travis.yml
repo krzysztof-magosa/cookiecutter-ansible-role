@@ -16,6 +16,7 @@ env:
   - TOX_ENV: py27-ansible25
   - TOX_ENV: py27-ansible26
   - TOX_ENV: py27-ansible27
+  - TOX_ENV: py27-ansible28
 
 script:
   - tox -e ${TOX_ENV}
