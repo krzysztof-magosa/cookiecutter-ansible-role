@@ -7,7 +7,7 @@ addons:
 
 sudo: required
 language: python
-python: 3.7
+python: {{ cookiecutter.python_version }}
 
 services:
   - docker
@@ -16,10 +16,10 @@ install:
   - pip install tox
 
 env:
-  - TOX_ENV: py37-ansible25
-  - TOX_ENV: py37-ansible26
-  - TOX_ENV: py37-ansible27
-  - TOX_ENV: py37-ansible28
+  - TOX_ENV: py{{ cookiecutter.python_version.replace('.', '') }}-ansible25
+  - TOX_ENV: py{{ cookiecutter.python_version.replace('.', '') }}-ansible26
+  - TOX_ENV: py{{ cookiecutter.python_version.replace('.', '') }}-ansible27
+  - TOX_ENV: py{{ cookiecutter.python_version.replace('.', '') }}-ansible28
 
 script:
   - tox -e ${TOX_ENV}
