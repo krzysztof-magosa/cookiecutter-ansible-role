@@ -19,26 +19,41 @@ scenario:
     # - verify
     - destroy
 platforms:
-  - name: ${TOX_ENVNAME}-centos
-    image: centos:7
+  - name: ${TOX_ENVNAME}-centos7
+    image: krzysztofmagosa/centos7-ansible-compat
+    pre_build_image: true
+    command: /sbin/init
+    tmpfs:
+      - /run
+      - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
-    command: /sbin/init
     environment:
       container: docker
-  - name: ${TOX_ENVNAME}-debian
-    image: debian:buster
+  #
+  - name: ${TOX_ENVNAME}-debian10
+    image: krzysztofmagosa/debian10-ansible-compat
+    pre_build_image: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
-  - name: ${TOX_ENVNAME}-debian-old
-    image: debian:stretch
+  - name: ${TOX_ENVNAME}-debian9
+    image: krzysztofmagosa/debian9-ansible-compat
+    pre_build_image: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
-  - name: ${TOX_ENVNAME}-ubuntu
-    image: ubuntu:bionic
+  #
+  - name: ${TOX_ENVNAME}-ubuntu19.04
+    image: krzysztofmagosa/ubuntu19.04-ansible-compat
+    pre_build_image: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+  - name: ${TOX_ENVNAME}-ubuntu18.04
+    image: krzysztofmagosa/ubuntu18.04-ansible-compat
+    pre_build_image: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
