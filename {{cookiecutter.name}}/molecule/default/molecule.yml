@@ -1,64 +1,33 @@
 driver:
   name: docker
-lint:
-  name: yamllint
-  options:
-    config-file: .yamllint
-scenario:
-  name: default
-  test_sequence:
-    - lint
-    - destroy
-    - dependency
-    - syntax
-    - create
-    # - prepare
-    - converge
-    - idempotence
-    # - side_effect
-    # - verify
-    - destroy
 platforms:
-  - name: ${TOX_ENVNAME}-centos7
-    image: krzysztofmagosa/centos7-ansible-compat
-    pre_build_image: true
-    command: /sbin/init
-    tmpfs:
-      - /run
-      - /tmp
+  - name: ${TOX_ENVNAME}-centos
+    image: centos:7
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
+    command: /sbin/init
     environment:
       container: docker
-  #
-  - name: ${TOX_ENVNAME}-debian10
-    image: krzysztofmagosa/debian10-ansible-compat
-    pre_build_image: true
+  - name: ${TOX_ENVNAME}-debian-stretch
+    image: debian:stretch
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
-  - name: ${TOX_ENVNAME}-debian9
-    image: krzysztofmagosa/debian9-ansible-compat
-    pre_build_image: true
+  - name: ${TOX_ENVNAME}-debian-buster
+    image: debian:buster
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
-  #
-  - name: ${TOX_ENVNAME}-ubuntu19.04
-    image: krzysztofmagosa/ubuntu19.04-ansible-compat
-    pre_build_image: true
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged: true
-  - name: ${TOX_ENVNAME}-ubuntu18.04
-    image: krzysztofmagosa/ubuntu18.04-ansible-compat
-    pre_build_image: true
+  - name: ${TOX_ENVNAME}-ubuntu
+    image: ubuntu:bionic
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
 provisioner:
   name: ansible
   log: false
-  lint:
-    name: ansible-lint
+lint: |
+  set -e
+  yamllint -c .yamllint .
+  ansible-lint

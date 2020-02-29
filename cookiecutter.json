@@ -2,7 +2,7 @@
   "name": "role",
   "description": "Nice role",
   "license": ["MIT", "BSD-3", "GNU GPL v3.0", "Apache Software License 2.0", "Proprietary"],
-  "min_ansible_version": "2.5",
+  "min_ansible_version": "2.8",
 
   "author_name": "Krzysztof Magosa",
   "author_email": "krzysztof@magosa.pl",
@@ -10,5 +10,5 @@
   "github_user": "krzysztof-magosa",
   "github_repo": "ansible-role-xyz",
 
-  "python_version": ["3.7", "2.7"]
+  "python_version": ["3.6", "3.7", "3.8"]
 }

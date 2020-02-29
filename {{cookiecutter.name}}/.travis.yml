@@ -1,28 +1,20 @@
-dist: xenial
+dist: bionic
 
-addons:
-  apt:
-    packages:
-      - docker-ce
-
-sudo: required
 language: python
-python: {{ cookiecutter.python_version }}
+python: "{{ cookiecutter.python_version }}"
 
 services:
   - docker
 
 install:
-  - pip install tox
+  - pip install tox==3.*
 
 env:
-  - TOX_ENV: py{{ cookiecutter.python_version.replace('.', '') }}-ansible25
-  - TOX_ENV: py{{ cookiecutter.python_version.replace('.', '') }}-ansible26
-  - TOX_ENV: py{{ cookiecutter.python_version.replace('.', '') }}-ansible27
-  - TOX_ENV: py{{ cookiecutter.python_version.replace('.', '') }}-ansible28
+  - TOX_ENV: ansible27
+  - TOX_ENV: ansible28
 
 script:
-  - tox -e ${TOX_ENV}
+  - tox --workdir $(mktemp -d) -e ${TOX_ENV}
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
