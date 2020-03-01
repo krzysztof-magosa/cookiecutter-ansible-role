@@ -3,17 +3,20 @@ galaxy_info:
   author: "{{ cookiecutter.author_name }}"
   description: "{{ cookiecutter.description }}"
   license: "{{ cookiecutter.license }}"
-  min_ansible_version: "{{ cookiecutter.min_ansible_version }}"
+  min_ansible_version: "{{ cookiecutter.ansible_versions | first }}"
   platforms:
-    - name: Debian
-      versions:
-        - stretch
-    - name: Ubuntu
-      versions:
-        - bionic
     - name: EL
       versions:
+        - 8
         - 7
+    - name: Debian
+      versions:
+        - bullseye # 11
+        - buster   # 10
+    - name: Ubuntu
+      versions:
+        - disco
+        - bionic
   # galaxy_tags:
   #   - tag_name
 
