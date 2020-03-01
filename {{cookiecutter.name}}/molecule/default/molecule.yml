@@ -1,5 +1,15 @@
 driver:
   name: docker
+
+provisioner:
+  name: ansible
+  log: true
+
+lint: |
+  set -e
+  yamllint -c .yamllint .
+  ansible-lint
+
 platforms:
   - name: ${TOX_ENVNAME}-centos
     image: centos:7
@@ -24,10 +34,3 @@ platforms:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
-provisioner:
-  name: ansible
-  log: false
-lint: |
-  set -e
-  yamllint -c .yamllint .
-  ansible-lint
