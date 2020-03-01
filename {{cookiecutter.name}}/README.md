@@ -5,8 +5,10 @@
 ## Description
 {{ cookiecutter.description }}
 
-## Requirements
-* Ansible {{ cookiecutter.min_ansible_version }} or better
+## Supported Ansible versions
+{% for version in cookiecutter.ansible_versions %}
+* {{ version }}
+{% endfor %}
 
 ## Supported systems
 * CentOS (tested on 7)

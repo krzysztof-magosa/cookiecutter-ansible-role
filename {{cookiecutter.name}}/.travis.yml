@@ -10,8 +10,9 @@ install:
   - pip install tox==3.*
 
 env:
-  - TOX_ENV: ansible27
-  - TOX_ENV: ansible28
+{% for version in cookiecutter.ansible_versions.split(',') %}
+  - TOX_ENV: ansible{{ version | replace('.', '') }}
+{% endfor %}
 
 script:
   - tox --workdir $(mktemp -d) -e ${TOX_ENV}

@@ -10,5 +10,6 @@
   "github_user": "krzysztof-magosa",
   "github_repo": "ansible-role-{{ cookiecutter.name }}",
 
-  "python_version": ["3.6", "3.7", "3.8"]
+  "python_version": ["3.6", "3.7", "3.8"],
+  "ansible_versions": "2.8,2.9"
 }
