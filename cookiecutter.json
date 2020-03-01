@@ -8,7 +8,7 @@
   "author_email": "krzysztof@magosa.pl",
 
   "github_user": "krzysztof-magosa",
-  "github_repo": "ansible-role-xyz",
+  "github_repo": "ansible-role-{{ cookiecutter.name }}",
 
   "python_version": ["3.6", "3.7", "3.8"]
 }
